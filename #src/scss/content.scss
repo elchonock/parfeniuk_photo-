@@ -1,0 +1,104 @@
+@use "sass:math";
+
+.content{
+    position: relative;
+    flex: 1 0 auto;
+    width: 100%;
+    z-index: 5;
+ 
+}
+
+.content_row{
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+
+ }
+.content_row_first{
+    position: relative;
+    flex: 1 0 33.333%;
+
+}
+.content_row_second{
+    position: relative;
+    flex: 1 0 33.333%;
+}
+.content_row_third{
+    position: relative;
+    flex: 1 0 33.333%;
+}
+.content_row_wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.content_row_item{
+    position: relative;
+    flex: 1 0 25%;
+    object-fit:cover;
+    
+    width: 476px;
+    min-width: 245px;
+    min-height: 183px;
+    height: 357px;
+
+    cursor: pointer; 
+    // text-align: center;
+    margin: auto 0; 
+
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        transition: background-color 0.9s ease;
+
+    }
+    &:hover::after{
+        display:block;
+        background-color: rgba(250, 250, 250, 0.6);
+        transition: background-color 0.9s ease;
+    }
+    
+    
+    img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        top: 0;
+        // margin: auto 0;
+        object-position: 50% 50%;
+        
+    }
+    
+}
+
+
+$viewport_width: 100vw;
+$viewport_heigth: 100vh;
+$img_container_width: math.div($viewport_width, 4);
+
+@media (max-width: $viewport_width ){
+    .content_row_item{
+    max-width: $img_container_width;
+    height: math.div($img_container_width, 1.33)
+    
+    }
+}
+
+
+
+

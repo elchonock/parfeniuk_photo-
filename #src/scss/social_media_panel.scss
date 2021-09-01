@@ -1,0 +1,16 @@
+@import "all_colors_variables.scss";
+
+.social_media_panel{
+    position:fixed;
+    display: block;
+    z-index: 55;
+    top: 40%;
+    left: 50px;
+    &_list{
+        &_item{
+            margin-bottom: 15px;
+        }
+    }
+}
+
+

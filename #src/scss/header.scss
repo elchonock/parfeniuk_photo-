@@ -1,0 +1,71 @@
+@import "all_colors_variables.scss";
+$background_color:#fafafa;
+$colorOne: rgb(47, 46, 46);
+
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    height: 81px;
+    background-color: $white;
+    transform-style: preserve-3d; 
+  
+    &_row{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+    }
+    &_menu{     
+    }
+}
+
+.menu {
+    &_burger{}
+    &_body{
+        width: 980px;
+    }
+    &_list{
+        display: flex;
+
+        li{
+            position: relative;
+            margin: 25px 5px;
+            flex: 1 0 auto;
+            text-align: center;
+      
+            div{
+                border: 2px solid $white;
+                margin: -2px;
+                cursor: pointer;
+                transition: border-color 0.5s ease;
+                
+                &:hover{
+                border: 2px solid $colorOne;
+                margin: -2px;
+                transition: border-color 0.4s ease;               
+                }
+            }
+            }   
+    }
+    &_link{  
+        color: $colorOne;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: 14px; 
+        line-height: 31px;
+        display: block;
+        width: 100%;
+        box-sizing: padding-box;
+        padding: 0px 16px;
+        
+        }
+}
+
+.menu_list li:first-child div{
+    border: 2px solid $colorOne;
+}
+
