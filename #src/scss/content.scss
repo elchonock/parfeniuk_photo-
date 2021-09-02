@@ -99,6 +99,30 @@ $img_container_width: math.div($viewport_width, 4);
     }
 }
 
+.popup_photo{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.7);
+    img {
+        object-fit: contain;
+        object-position: center center;
+        max-width: 85vw;
+        max-height: 90vh;
+    }
 
+    
+}
+// @media (max-width: $viewport_width ){
+//     .popup_photo img{
+//     width: 50vw;
+//     height: auto;
+    
+//     }
+// }
 
 

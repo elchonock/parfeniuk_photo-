@@ -112,18 +112,33 @@ let scrollToIdTimerId;
 function scrollToId(id) {
     scrollToIdFunc();
     function scrollToIdFunc() {
-        const point = document.querySelector(id).getBoundingClientRect().top;
-        if (point > 800) { 
-            page.scrollTop = Math.floor((page.scrollTop + 10) * 1.25);
-            scrollToIdTimerId = setTimeout(scrollToIdFunc, 20); 
-        } else if(point > 0 && point < 800){
-            page.scrollTop = Math.floor(page.scrollTop + 20);
-            scrollToIdTimerId = setTimeout(scrollToIdFunc, 10); 
-
-        } else { 
-            clearTimeout(scrollToIdTimerId); 
-        } 
-        return false; 
+        if (document.documentElement.scrollHeight <= 1040) {
+            const point = document.querySelector(id).getBoundingClientRect().top;
+            if (point > 800) { 
+                page.scrollTop = Math.floor((page.scrollTop + 10) * 1.25);
+                scrollToIdTimerId = setTimeout(scrollToIdFunc, 20); 
+    
+            } else if(point > 0 && point < 800){
+                page.scrollTop = Math.floor(page.scrollTop + 20);
+                scrollToIdTimerId = setTimeout(scrollToIdFunc, 10); 
+    
+            } else { 
+                clearTimeout(scrollToIdTimerId); 
+            } 
+            return false; 
+        } else {
+            const point = document.querySelector(id).getBoundingClientRect().top - (document.documentElement.scrollHeight - 1040);
+            if (point > 800) { 
+                page.scrollTop = Math.floor((page.scrollTop + 10) * 1.25);
+                scrollToIdTimerId = setTimeout(scrollToIdFunc, 20);
+            } else if(point > 0 && point < 800){
+                page.scrollTop = Math.floor(page.scrollTop + 20);
+                scrollToIdTimerId = setTimeout(scrollToIdFunc, 10); 
+            } else { 
+                clearTimeout(scrollToIdTimerId); 
+            } 
+            return false; 
+        }
     }  
 }
 
@@ -133,11 +148,57 @@ navElements.forEach(elem => {
         e.preventDefault();
         const idToScrollTo = "#" + e.target.getAttribute("data-nav");
         scrollToId(idToScrollTo);
+    });
+});
+
+navElements.forEach(elem => {
+    elem.addEventListener("touch", (e) => {
+        e.preventDefault();
+        const idToScrollTo = "#" + e.target.getAttribute("data-nav");
+        scrollToId(idToScrollTo);
+    });
+});
+
+
+
+// Slider
+// 1 Open Photo
+function photos() {
+    const photoPopup = document.createElement("div");
+    const photoContainer = document.querySelector(".wrapper");
+    const bigPhoto = document.createElement("img");
+
+    photoPopup.classList.add("popup_photo");
+    photoContainer.appendChild(photoPopup);
+    
+    photoPopup.style.justifyContent = "center";
+    photoPopup.style.alignItems = "center";
+    photoPopup.style.display = "none";
+
+
+    photoPopup.appendChild(bigPhoto);
+
+
+
+    photoContainer.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        if (event.target && event.target.classList.contains("content_row_item")){
+            photoPopup.style.display = "flex";
+            photoPopup.style.overflow = "hidden";
+            const path = event.target.getAttribute("data-photo");
+            bigPhoto.setAttribute("src", path);
+        }
+        if (event.target && event.target.matches("div.popup_photo")){
+            photoPopup.style.display = "none";
+            photoPopup.style.overflow = "";
+        }
 
     });
 
-});
+}
 
+photos();
 
 
 
