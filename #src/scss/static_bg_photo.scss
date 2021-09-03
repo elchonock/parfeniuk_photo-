@@ -45,14 +45,15 @@ $white: #fff;
             &_text{
                 font-size: 45px;
                 color: $white;
-
-
                 letter-spacing: 0.1em;
                 font-family: EBGaramond, serif;
                 vertical-align: baseline;
                 text-align: start;
                 margin: 0;
                 line-height: normal;
+                //for bloom
+                opacity: 0;
+               
             }
         }
     }

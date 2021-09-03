@@ -21,6 +21,7 @@
 @import "contact.scss";
 @import "social_media_panel.scss";
 @import "timer.scss";
+@import "popup_window.scss";
 
 
 $background_color:#fafafa;
@@ -248,5 +249,49 @@ img {
 
 }
 
+
+.bloom{
+    animation-duration: 2s;
+    animation-name: bloom;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes bloom{
+    0%{opacity: 0;
+    position: absolute;
+    bottom: -50px;
+}
+    90%{
+        opacity: 0.9;
+    }
+    100%{
+    opacity: 1;
+    bottom: 0;
+    position: relative;
+    }
+}
+
+
+.bloomContent{
+    animation-duration: 1s;
+    animation-name: bloomContent;
+    animation-timing-function: ease;
+    transition: all ease-out 1s;
+}
+
+@keyframes bloomContent{
+    0%{
+        transform-origin: top left;
+        transform:  scale(0.9) ;
+        opacity: 0.7;     
+}
+
+    100%{
+        transform-origin: top left;        
+        transform:  scale(1) ;
+        opacity: 1;
+  
+    }
+}
 
 

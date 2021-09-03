@@ -1,4 +1,148 @@
+// @use "sass:math";
+
+// .content{
+//     position: relative;
+//     flex: 1 0 auto;
+//     width: 100%;
+//     z-index: 5;
+ 
+// }
+
+// .content_row{
+//     // position: absolute;
+//     // top: 0;
+//     // left: 0;
+//     width: 100%;
+//     height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: stretch;
+
+//  }
+// .content_row_first{
+//     position: relative;
+//     flex: 1 0 33.333%;
+
+// }
+// .content_row_second{
+//     position: relative;
+//     flex: 1 0 33.333%;
+// }
+// .content_row_third{
+//     position: relative;
+//     flex: 1 0 33.333%;
+// }
+// .content_row_wrap{
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+// }
+// .content_row_item{
+//     position: relative;
+//     flex: 1 0 25%;
+//     object-fit:cover;
+    
+//     width: 476px;
+//     min-width: 245px;
+//     min-height: 183px;
+//     height: 357px;
+
+//     cursor: pointer; 
+//     // text-align: center;
+//     margin: auto 0; 
+
+//     &::after{
+//         content: "";
+//         position: absolute;
+//         top: 0;
+//         bottom: 0;
+//         left: 0;
+//         right: 0;
+//         width: 100%;
+//         height: 100%;
+//         transition: background-color 0.9s ease;
+
+//     }
+//     &:hover::after{
+//         display:block;
+//         background-color: rgba(250, 250, 250, 0.6);
+//         transition: background-color 0.9s ease;
+//     }
+    
+    
+//     img{
+//         position: absolute;
+//         width: 100%;
+//         height: 100%;
+//         object-fit: cover;
+//         left: 0;
+//         bottom: 0;
+//         right: 0;
+//         top: 0;
+//         // margin: auto 0;
+//         object-position: 50% 50%;
+        
+//     }
+    
+// }
+
+
+// $viewport_width: 100vw;
+// $viewport_heigth: 100vh;
+// $img_container_width: math.div($viewport_width, 4);
+
+// @media (max-width: $viewport_width ){
+//     .content_row_item{
+//     max-width: $img_container_width;
+//     height: math.div($img_container_width, 1.33)
+    
+//     }
+// }
+
+// .popup_photo{
+//     display: none;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     z-index: 99;
+//     background-color: rgba(0, 0, 0, 0.7);
+//     img {
+//         object-fit: contain;
+//         object-position: center center;
+//         max-width: 85vw;
+//         max-height: 90vh;
+//     }
+
+    
+// }
+// // @media (max-width: $viewport_width ){
+// //     .popup_photo img{
+// //     width: 50vw;
+// //     height: auto;
+    
+// //     }
+// // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @use "sass:math";
+@import "all_colors_variables.scss";
 
 .content{
     position: relative;
@@ -15,27 +159,30 @@
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: stretch;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    background-color: $white;
 
  }
-.content_row_first{
-    position: relative;
-    flex: 1 0 33.333%;
+// .content_row_first{
+//     // position: relative;
+//     // flex: 1 0 33.333%;
 
-}
-.content_row_second{
-    position: relative;
-    flex: 1 0 33.333%;
-}
-.content_row_third{
-    position: relative;
-    flex: 1 0 33.333%;
-}
+// }
+// .content_row_second{
+//     position: relative;
+//     flex: 1 0 33.333%;
+// }
+// .content_row_third{
+//     position: relative;
+//     flex: 1 0 33.333%;
+// }
 .content_row_wrap{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .content_row_item{
     position: relative;
@@ -50,6 +197,7 @@
     cursor: pointer; 
     // text-align: center;
     margin: auto 0; 
+    transition: all 0.9s ease;
 
     &::after{
         content: "";
@@ -90,15 +238,37 @@
 $viewport_width: 100vw;
 $viewport_heigth: 100vh;
 $img_container_width: math.div($viewport_width, 4);
+$img_container_width2: math.div($viewport_width, 1.3);
 
-@media (max-width: $viewport_width ){
+@media (max-width: 2000px ){
     .content_row_item{
-    max-width: $img_container_width;
-    height: math.div($img_container_width, 1.33)
-    
+        max-width: $img_container_width;
+        height: math.div($img_container_width, 1.33);
     }
 }
 
+@media (max-width: 1000px){
+    .content_row_item{
+        flex: 1 0 33.333%;
+        max-width: $img_container_width2;
+        height: math.div(34vw, 1.33);
+    }
+}
+
+@media (max-width: 760px){
+    .content_row_item{
+        flex: 1 0 50%;
+        max-width: 100vw;
+        height: math.div(50vw, 1.33);
+        min-width: 50%;
+    }
+    .wrapper{
+        min-width: 700px;
+    }
+}
+
+
+// Slider
 .popup_photo{
     display: none;
     position: fixed;
@@ -108,21 +278,117 @@ $img_container_width: math.div($viewport_width, 4);
     height: 100%;
     z-index: 99;
     background-color: rgba(0, 0, 0, 0.7);
+
+    
+    justify-content:center;
+    align-items:center;
+
     img {
         object-fit: contain;
         object-position: center center;
         max-width: 85vw;
         max-height: 90vh;
+        z-index: 100;
+        position: relative;
     }
-
-    
 }
-// @media (max-width: $viewport_width ){
-//     .popup_photo img{
-//     width: 50vw;
-//     height: auto;
-    
-//     }
-// }
 
 
+.bigPhotoWrapper{
+    max-width: 85vw;
+    max-height: 90vh;
+    z-index: 100;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+}
+
+
+.next{
+    width: 50vw;
+    height: 100%;
+    background-color: black;
+    opacity: 0.7;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    &::before, &::after{
+        content: "";
+        width: 35px;
+        height: 2px;
+        background-color: $white;
+        position: absolute;
+        top: 50%;
+        left: 87%;
+        z-index: 250;
+        stroke: $white;
+    }
+    &::before{ transform: translateY(-12px) rotate(45deg);}
+    &::after{ transform: translateY(12px) rotate(-45deg);}
+
+}
+
+.prev{
+    width: 50vw;
+    height: 100%;
+    background-color: black;
+    opacity: 0.7;
+    display: none;
+    position: absolute;
+    left: 0;
+    top:0;
+    cursor: pointer;
+
+    &::before, &::after{
+        content: "";
+        width: 35px;
+        height: 2px;
+        background-color: $white;
+        position: absolute;
+        top: 50%;
+        right: 87%;
+        z-index: 250;
+        stroke: $white;
+    }
+    &::before{ transform: translateY(-12px) rotate(-45deg);}
+    &::after{ transform: translateY(12px) rotate(45deg);}
+
+}
+
+.closeX{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0px;
+    right: -40px;
+    z-index: 250;
+    cursor: pointer;
+    &::before{
+        content: "";
+        height: 2px;
+        width: 100%;
+        background-color: $white;
+        position: absolute;
+        top: 10px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: rotate(45deg);
+    }
+    &::after{
+        content: "";
+        height: 2px;
+        width: 100%;
+        background-color: $white;
+        position: absolute;
+        top: 10px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: rotate(-45deg);
+    }
+}
