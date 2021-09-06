@@ -30,7 +30,8 @@ function ibg(){
 ibg();
 
 
-// Timer
+// Timer //disabled now
+
 const deadLine = "2021-09-30";
 
 function getTimeRamaining(endtime) {
@@ -79,6 +80,7 @@ function setClock(selector, endtime) {
 }
 
 setClock(".timer", deadLine);
+document.querySelector(".timer").style.display = "none";
 
 
 // Scroll
@@ -87,6 +89,7 @@ const topBtn = document.querySelectorAll(".to_top");
 const page = document.querySelector(".page");
 
 
+//Scroll to top
 let t; 
 function scrolltop() { 
     let top = Math.max(document.body.scrollTop, page.scrollTop); 
@@ -99,28 +102,36 @@ function scrolltop() {
     return false; 
 }
 
-
+// Scroll top click
 topBtn.forEach(item => {
     item.addEventListener("click", (e) => {
         e.preventDefault();
         scrolltop();
     });
 });
+// // Scroll top touch
+// topBtn.forEach(item => {
+//     item.addEventListener("touchstart", (e) => {
+//         e.preventDefault();
+//         scrolltop();
+//     });
+// });
 
 
+//Scroll to Elements
 let scrollToIdTimerId;
 function scrollToId(id) {
     scrollToIdFunc();
     function scrollToIdFunc() {
         if (document.documentElement.scrollHeight <= 1040) {
-            const point = document.querySelector(id).getBoundingClientRect().top;
+            const point = document.querySelector(id).getBoundingClientRect().top;            
             if (point > 800) { 
                 page.scrollTop = Math.floor((page.scrollTop + 10) * 1.25);
                 scrollToIdTimerId = setTimeout(scrollToIdFunc, 20); 
     
-            } else if(point > 0 && point < 800){
-                page.scrollTop = Math.floor(page.scrollTop + 20);
-                scrollToIdTimerId = setTimeout(scrollToIdFunc, 10); 
+            } else if(point > 1 && point < 800){
+                page.scrollTop = Math.floor(page.scrollTop + 75);
+                scrollToIdTimerId = setTimeout(scrollToIdFunc, 30); 
     
             } else { 
                 clearTimeout(scrollToIdTimerId); 
@@ -141,7 +152,7 @@ function scrollToId(id) {
         }
     }  
 }
-
+//Scroll click
 const navElements = document.querySelectorAll("[data-nav]");
 navElements.forEach(elem => {
     elem.addEventListener("click", (e) => {
@@ -151,9 +162,11 @@ navElements.forEach(elem => {
     });
 });
 
+// //Scroll touch
 // navElements.forEach(elem => {
-//     elem.addEventListener("touch", (e) => {
+//     elem.addEventListener("touchstart", (e) => {
 //         e.preventDefault();
+//         e.stopPropagation();
 //         const idToScrollTo = "#" + e.target.getAttribute("data-nav");
 //         scrollToId(idToScrollTo);
 //     });
@@ -199,6 +212,7 @@ function photos() {
             photoPopup.style.overflow = "hidden";
             pathBPh = event.target.getAttribute("data-photo");
             bigPhoto.setAttribute("src", pathBPh);
+            bigPhoto.classList.add("fadeOne");
 
             slides.forEach((item, index) => {
             if (pathBPh == item.getAttribute("data-photo")){
@@ -211,6 +225,7 @@ function photos() {
         if (event.target && event.target.matches("div.popup_photo")){
             photoPopup.style.display = "none";
             photoPopup.style.overflow = "";
+            bigPhoto.classList.remove("fadeTwo");
         }
     });
 
@@ -218,19 +233,23 @@ function photos() {
     closeX.addEventListener("click", () =>{
         photoPopup.style.display = "none";
         photoPopup.style.overflow = "";
+        bigPhoto.classList.remove("fadeTwo");
     });
     //___________________________
 
     //Slider
     next.addEventListener("click", (event)=>{
-        console.log(slideIndex);
         if (slideIndex+1 < slides.length){
             bigPhoto.setAttribute("src", slides[slideIndex+1].getAttribute("data-photo"));
             slideIndex++;
-            console.log(slideIndex);
+            bigPhoto.classList.toggle("fadeOne");
+            bigPhoto.classList.toggle("fadeTwo");
+
         } else {
             slideIndex = 0;
             bigPhoto.setAttribute("src", slides[slideIndex].getAttribute("data-photo"));
+            bigPhoto.classList.toggle("fadeOne");
+            bigPhoto.classList.toggle("fadeTwo");
         }
     });
 
@@ -238,9 +257,13 @@ function photos() {
         if (slideIndex > 0){
             bigPhoto.setAttribute("src", slides[slideIndex-1].getAttribute("data-photo"));
             slideIndex--;
+            bigPhoto.classList.toggle("fadeOne");
+            bigPhoto.classList.toggle("fadeTwo");
         } else {
             slideIndex = slides.length - 1;
             bigPhoto.setAttribute("src", slides[slideIndex].getAttribute("data-photo"));
+            bigPhoto.classList.toggle("fadeOne");
+            bigPhoto.classList.toggle("fadeTwo");
         }
     });
 
@@ -268,15 +291,32 @@ page.addEventListener("scroll", addBloomToBgPhoto);
 const contentItems = document.querySelectorAll(".content_row_item");
 const content = document.querySelector(".content_row");
 
-function addBloomToContent() {
+function addFadeToContent() {
     if (Math.floor(content.getBoundingClientRect().top - document.documentElement.clientHeight <= -100)) {
-        contentItems.forEach( i => {
-            i.classList.add("bloomContent");
+        // contentItems.forEach( i => {
+        //     i.classList.add("fadeThree");  
+        // });
+        contentItems.forEach(function(i, index){
+            setTimeout(function(){
+                i.classList.add("fadeOne");
+                                
+            }, index*75);
+            
         });
-
-        page.removeEventListener("scroll", addBloomToContent);
+   
+        page.removeEventListener("scroll", addFadeToContent);
     }     
     return false;
 }
 
-page.addEventListener("scroll", addBloomToContent);
+page.addEventListener("scroll", addFadeToContent);
+
+
+//Preloader
+window.addEventListener("load", (e)=>{
+    const preloader = document.querySelector(".preloader");
+    setTimeout(function () {
+        // preloader.style.display = "none";   
+        preloader.classList.add("preloader_done");     
+    }, 500);
+});

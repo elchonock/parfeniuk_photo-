@@ -22,6 +22,7 @@
 @import "social_media_panel.scss";
 @import "timer.scss";
 @import "popup_window.scss";
+@import "preloader.scss";
 
 
 $background_color:#fafafa;
@@ -251,9 +252,10 @@ img {
 
 
 .bloom{
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-name: bloom;
-    animation-timing-function: ease-in-out;
+    animation-timing-function: linear;
+    transition: ease 1s all;
 }
 
 @keyframes bloom{
@@ -261,9 +263,9 @@ img {
     position: absolute;
     bottom: -50px;
 }
-    90%{
-        opacity: 0.9;
-    }
+    // 90%{
+    //     opacity: 0.9;
+    // }
     100%{
     opacity: 1;
     bottom: 0;
@@ -272,26 +274,26 @@ img {
 }
 
 
-.bloomContent{
-    animation-duration: 1s;
-    animation-name: bloomContent;
-    animation-timing-function: ease;
-    transition: all ease-out 1s;
-}
+// .bloomContent{
+//     animation-duration: 1s;
+//     animation-name: bloomContent;
+//     animation-timing-function: ease;
+//     transition: all ease-out 1s;
+// }
 
-@keyframes bloomContent{
-    0%{
-        transform-origin: top left;
-        transform:  scale(0.9) ;
-        opacity: 0.7;     
-}
+// @keyframes bloomContent{
+//     0%{
+//         transform-origin: top left;
+//         transform:  scale(0.9) ;
+//         opacity: 0.7;     
+// }
 
-    100%{
-        transform-origin: top left;        
-        transform:  scale(1) ;
-        opacity: 1;
+//     100%{
+//         transform-origin: top left;        
+//         transform:  scale(1) ;
+//         opacity: 1;
   
-    }
-}
+//     }
+// }
 
 

@@ -162,7 +162,8 @@
     flex-direction: row;
     justify-content: center;
     align-items:center;
-    background-color: $white;
+    background-color: $background_color;
+    
 
  }
 // .content_row_first{
@@ -197,7 +198,7 @@
     cursor: pointer; 
     // text-align: center;
     margin: auto 0; 
-    transition: all 0.9s ease;
+    transition: all 2s ease-in-out;
 
     &::after{
         content: "";
@@ -238,12 +239,16 @@
 $viewport_width: 100vw;
 $viewport_heigth: 100vh;
 $img_container_width: math.div($viewport_width, 4);
-$img_container_width2: math.div($viewport_width, 1.3);
+$img_container_width2: math.div($viewport_width, 1.33);
+$img_container_width3: math.div($viewport_width, 3);
+
 
 @media (max-width: 2000px ){
     .content_row_item{
         max-width: $img_container_width;
         height: math.div($img_container_width, 1.33);
+        width: $img_container_width;
+
     }
 }
 
@@ -251,20 +256,25 @@ $img_container_width2: math.div($viewport_width, 1.3);
     .content_row_item{
         flex: 1 0 33.333%;
         max-width: $img_container_width2;
-        height: math.div(34vw, 1.33);
+        height: math.div( $img_container_width3, 1.33);
+        // min-width: math.div($viewport_width, 3);
+        max-height: 30vh;
+
     }
 }
 
 @media (max-width: 760px){
     .content_row_item{
         flex: 1 0 50%;
-        max-width: 100vw;
-        height: math.div(50vw, 1.33);
-        min-width: 50%;
+        max-width: 100%;
+        height: math.div($viewport_width, 1.33);
+        min-width: 380px;
+        min-height: 285px;
+        max-height: 20vh;
     }
-    .wrapper{
-        min-width: 700px;
-    }
+    // .wrapper{
+    //     // min-width: 700px;
+    // }
 }
 
 
@@ -307,7 +317,7 @@ $img_container_width2: math.div($viewport_width, 1.3);
 
 
 .next{
-    width: 50vw;
+    width: 50%;
     height: 100%;
     background-color: black;
     opacity: 0.7;
@@ -333,7 +343,7 @@ $img_container_width2: math.div($viewport_width, 1.3);
 }
 
 .prev{
-    width: 50vw;
+    width: 50%;
     height: 100%;
     background-color: black;
     opacity: 0.7;
@@ -360,35 +370,67 @@ $img_container_width2: math.div($viewport_width, 1.3);
 }
 
 .closeX{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     position: absolute;
     top: 0px;
-    right: -40px;
+    right: -45px;
     z-index: 250;
     cursor: pointer;
-    &::before{
+    &::before, &::after{
         content: "";
         height: 2px;
         width: 100%;
         background-color: $white;
         position: absolute;
-        top: 10px;
+        top: 14px;
         bottom: 0;
         left: 0;
         right: 0;
-        transform: rotate(45deg);
     }
-    &::after{
-        content: "";
-        height: 2px;
-        width: 100%;
-        background-color: $white;
-        position: absolute;
-        top: 10px;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        transform: rotate(-45deg);
+
+    &::before{transform: rotate(45deg);}
+    &::after{transform: rotate(-45deg);}
+
+
+}
+
+.fadeOne{
+    animation: fadeOne 1s ease-in-out;
+    transition: all ease-in-out 1s;
+}
+@keyframes fadeOne {
+    from{
+        opacity: 0.2;
     }
+    to{
+        opacity: 1;
+    }  
+}
+.fadeTwo{
+    animation: fadeTwo 1s ease;
+    transition: all ease 1s;
+}
+@keyframes fadeTwo {
+    from{
+        opacity: 0.2;
+    }
+    to{
+        opacity: 1;
+    }  
+}
+
+.fadeThree{
+    animation: fadeThree 1s ease-in;
+    transition: all linear 1s;
+}
+@keyframes fadeThree {
+    from{
+        opacity: 0.2;
+        // transform: translateX(-10px) scale(1.01);
+    }
+    to{
+        opacity: 1;
+        // transform: translateX(0px) scale(1);
+    }  
 }
