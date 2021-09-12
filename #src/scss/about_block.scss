@@ -2,6 +2,7 @@
 $background_color:#fafafa;
 $colorOne: rgb(47, 46, 46);
 $colorTwo: rgb(160, 160, 159);
+$colorTwo467: rgb(121, 121, 119);
 
 
 .about{
@@ -66,6 +67,7 @@ $colorTwo: rgb(160, 160, 159);
         letter-spacing: normal;
         line-height: normal;
         margin-top: -20px;
+        max-width: 100%;
     }
     &_container_p{
         width: 360px;
@@ -89,3 +91,158 @@ $colorTwo: rgb(160, 160, 159);
     }
 }
 
+@media (max-width: 992px) {
+
+    .about_text{
+
+        max-width: 50%;
+        padding: 40px;
+        &_container_p{
+            margin: 0 -15px ;
+        }
+    }  
+}
+
+@media (max-width: 767px) {
+    .about{
+        height: 560px;
+    }
+    .about_row{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+    .about_img{
+    
+        & img{
+            // width: 1272px;
+            height: 590px;
+            position: absolute;
+            object-fit: cover;
+            object-position: center;        
+        }
+    }
+    .about_text{
+        position: absolute;
+        flex: 1 0 50%;
+        padding: 45px;
+        &_text{
+            font-size: 14px;
+        }
+    }  
+}
+
+
+@media (max-width: 479px) {
+    .about {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+
+		&_row {
+            position: relative;
+            display: block;
+            margin: 0;
+            padding: 0;
+
+            & .about_img {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                top: 0;
+                
+                img {
+                    object-fit: cover;
+                    object-position: center;   
+                    position: relative;
+                    width: 100%;
+                    min-height: 567px;
+                }
+
+            }
+            & .about_text {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items:center;
+                flex-direction: column;
+                padding: 10px;
+                top: 0;
+                min-width: 100%;
+
+                &_header{
+                    position: relative;
+                    margin: 0 0 3px 0;
+                    padding: 22px 5px 15px 5px;
+                    display: block;
+                }
+                & .about_line_decor{
+                    position: relative;
+                    margin: 0;
+                    padding: 0;
+                    display: block;
+                }
+                &_text{
+                    position: relative;
+                    margin: 0 auto;
+                    padding: 5px;
+                    display: block;
+                    // flex: 1 1 auto;
+                    min-width: 100%;
+
+                    
+                    & .about_text_container_p{
+                        max-width: 100%;
+                        padding: 15px 0px 5px 0px;
+                        margin: 0 auto;
+
+                        p{
+                            display: inline-block;
+                            margin: 0 0 10px 0;
+                            padding: 0;
+                            line-height: 140%;
+                            color: $colorTwo467;
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+    }   
+}   
+
+@media (max-width:290px) {
+    .about {
+		&_row {
+            & .about_text {
+                &_header{
+                    margin: 0 0 3px 0;
+                    padding: 16px 4px 10px 4px;
+                }
+                &_text{
+                    padding: 2px;
+                    min-width: 100%;
+                    & .about_text_container_p{
+                        padding: 10px 0px 5px 0px;
+                        p{
+                            margin: 0 0 7px 0;
+                            padding: 0;
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+    }   
+    
+}

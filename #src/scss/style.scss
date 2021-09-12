@@ -35,11 +35,6 @@ $colorButton: rgb(114, 114, 114);
 $colorButtonHover: rgb(204, 204, 204);
 
 
-// html {
-//     scroll-behavior: smooth;
-//     // overflow-y: scroll;
-//     }
-
 
 body{
     background-color: $background-color;
@@ -57,7 +52,7 @@ body{
     height: 100%;
     overflow: hidden;
     min-height: 100%;
-    min-width: 980px;
+    // min-width: 980px;
 }
 
 
@@ -92,7 +87,7 @@ section{
         /* Keep the image from overlapping sibling elements. */
         z-index: -1;
         width: 100%;
-        min-width: 980px;
+        // min-width: 980px;
         transform-style: preserve-3d;
         // overflow:hidden; 
         min-height: 698px;
@@ -142,6 +137,7 @@ section{
     &_small_div{
         width: 698px;
         height: 23px;
+        margin: 0 auto;
 
         &::before{
             content: "";
@@ -185,7 +181,59 @@ section{
     }
 }
 
+@media (max-width: 767px) {
+    .header_parallax_link.name{
+        font-size: 42px;
+    }
+    .header_parallax_link.photographer{
+        font-size: 16px;
+    }
+}
 
+@media (max-width: 626px) {
+    .header_parallax_link.name{
+        font-size: 38px;
+    }
+    .header_parallax_link.photographer{
+        font-size: 15px;
+    }
+
+}
+@media (max-width: 558px) {
+    .header_parallax_small_div{
+        width: 498px;
+        height: 23px;
+        margin: 0 auto;
+        &::before{
+            left: 400px;
+        }
+        &::after{
+            left: 65px;
+        }
+    }
+    .header_parallax_link.name{
+        font-size: 42px;
+        line-height: 150%;
+    }
+    .header_parallax_link.photographer{
+        font-size: 16px;
+    }
+
+    // section.new_main{
+    //     min-height: 700px;
+    // }
+    // div.header_parallax{
+    //     // min-height: 250px;
+    // }
+}
+
+
+
+
+
+
+
+//for high screen_________________________
 @media (min-height: 1000px ){
     .text_par{
         margin-top: 3vh;
@@ -224,33 +272,13 @@ section{
 
 
 
-
-
-
-// @media (max-width: 1400px ){
-//     .container{
-//         max-width: 970px;
-//     }
-// }
-// @media (max-width: 992px ){
-//     .container{
-//         max-width: 750px;
-//     }
-// }
-// @media (max-width: 767px ){
-//     .container{
-//         max-width: none;
-//     }
-// }
-
-
-
 img {
     max-width: 100%;
 
 }
 
-
+//Animations---------------------------------------------
+//-------------------------------------------------------
 .bloom{
     animation-duration: 1s;
     animation-name: bloom;
@@ -263,9 +291,6 @@ img {
     position: absolute;
     bottom: -50px;
 }
-    // 90%{
-    //     opacity: 0.9;
-    // }
     100%{
     opacity: 1;
     bottom: 0;

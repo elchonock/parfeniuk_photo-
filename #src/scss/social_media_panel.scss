@@ -3,14 +3,55 @@
 .social_media_panel{
     position:fixed;
     display: block;
-    z-index: 55;
+    z-index: 50;
     top: 40%;
     left: 50px;
+    // overflow: visible;
     &_list{
         &_item{
             margin-bottom: 15px;
+            // a{
+            //     z-index: 999;
+            // }
         }
     }
 }
 
 
+
+@media (max-width:767px) {
+    .social_media_panel{
+        top: 0;
+        left: 3%;
+        width: 75%;
+        padding: 18px;
+        overflow: auto;
+        z-index: 99;
+        
+        &_list{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &_item{
+                margin: 0;
+                cursor: pointer;
+                a{
+                    width: 42px;
+                    height: 42px;
+                    display: block;
+                }
+                img{
+                    position: relative;
+                    height: 42px;
+                    width: 42px;
+                }
+            }
+        }
+    }
+
+}
+
+.social_media_panel.hidden_head{
+    top: -100%;
+    transition: top ease 0.3s 0s;
+}

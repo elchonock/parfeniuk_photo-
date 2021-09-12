@@ -14,7 +14,6 @@ $colorButtonHover: rgb(204, 204, 204);
     position: relative;
     flex: 1 0 auto;
     background-color: $white;
-    overflow: visible;
     &_row{
         position: relative;
         display: flex;
@@ -68,13 +67,11 @@ $colorButtonHover: rgb(204, 204, 204);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        // align-items: flex-end;
 
     }
     &_upper{
         position: relative;
         flex: 1 0 25%;
-        // align-self: stretch;
         padding-top: 9px;
     }
 
@@ -100,11 +97,7 @@ $colorButtonHover: rgb(204, 204, 204);
         font-family: OpenSans-Regular, sans-serif;    
 
         &_name{
-            // width: 385px;
-            // height: 30px;
-            margin: 14px 0 7px 0;
-            // border: 1px $colorTwo solid;
-            // padding: 3px 3px 3px 24px;            
+            margin: 14px 0 7px 0;           
 
             input{
                 height: 22px;
@@ -115,10 +108,6 @@ $colorButtonHover: rgb(204, 204, 204);
             
         }
         &_mail{
-            // width: 385px;
-            // height: 30px;
-            // border: 1px $colorTwo solid;
-            // padding: 3px 3px 3px 24px;
             margin: 0px 0 7px 0;
             input{
                 height: 22px;
@@ -129,10 +118,6 @@ $colorButtonHover: rgb(204, 204, 204);
 
         }
         &_phone{
-            // width: 385px;
-            // height: 30px;
-            // border: 1px $colorTwo solid;
-            // padding: 3px 3px 3px 24px;
             margin: 0px 0 7px 0;
             input{
                 height: 22px;
@@ -244,12 +229,10 @@ $colorButtonHover: rgb(204, 204, 204);
 .contact_img{
     position: relative;
     flex: 1 0 50%;
-    // overflow: visible;
 
     &_container{
         width: 100%; 
         height: 100%;
-        // overflow: visible;
               
           img{
             height: 100%;
@@ -260,3 +243,143 @@ $colorButtonHover: rgb(204, 204, 204);
     }
 }
 
+
+
+@media (max-width: 992px) {
+
+    .contact{
+        display: flex;
+        justify-content: center;
+        align-items:center;
+    }
+
+    .contact_row{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        height:100%;
+        width: 100%;
+        margin: 30px 0;
+
+    }
+ 
+    .contact_form{
+        flex: 1 1 50%;
+        order: 2;
+        height:100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;         
+        &_row{
+            padding: 0;    
+            justify-content: center;
+            align-items: center;  
+            margin: 20px;  
+            position: relative;    
+        }
+        &_upper{
+            flex: 1 1 35%;
+            padding: 7px 7px 0 7px;
+
+        }
+        
+
+        &_form{
+            flex: 1 1 65%;
+            margin-bottom: 0px;    
+            padding: 0 7px 7px 7px;
+            width: 100%;
+            height: 100%;
+        }
+
+        &_header{
+            font-size: 35px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        &_line_decor{
+            margin-bottom: 15px;
+        }
+        &_contacts_data{
+            margin-bottom: 0px;
+        }
+
+    }
+    .contact_img{
+        flex: 1 1 50%;
+        order: 1;
+        width: 80%;
+        margin: 15px 15px 0 15px;
+
+    }    
+}
+
+
+@media (max-width: 767px) { 
+    .contact_img{
+        display: none;
+    }    
+}
+
+@media (max-width: 479px) {
+    .contact_row{
+        margin: 20px 0;
+    }
+ 
+    .contact_form{
+        &_row{
+            padding: 10px;    
+            margin: 0;  
+        }
+
+        &_input_common{
+            width: 300px;
+            margin: 5px auto;
+        }
+
+        &_header{
+            font-size: 30px;
+        }
+        &_form_area{
+            width: 100%;
+            margin: 5px auto;            
+        }
+    }
+
+    .contact_area{
+        width: 300px;
+        height: 100%;
+        margin: 0 auto;
+    }
+    .contact_form_form_button{
+        width: 300px;
+    }
+    
+}
+
+@media (max-width: 319px) {
+    .contact_row{
+        margin: 15px 0;
+    }
+    .contact_form{
+        &_row{
+            padding: 7px;   
+        }
+        &_input_common{
+            width: 270px;
+        }
+        &_header{
+            font-size: 27px;
+        }
+    }
+    .contact_area{
+        width: 270px;
+
+    }
+    .contact_form_form_button{
+        width: 270px;
+    }
+    
+}
