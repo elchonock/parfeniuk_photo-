@@ -281,15 +281,12 @@ $img_container_width3: math.div($viewport_width, 3);
 
     .content_row_item{
         flex: 1 1 50%;
-        // height: math.div($viewport_width, 1.33);
         min-width: 140px;
         min-height: 235px;
-        // max-height: 20vh;
+
         max-width: 100%;
         height: math.div($viewport_width, 1.33);
-        // min-width: none;
-        // min-width: math.div($viewport_width, 3);
-        // max-height: 100%;
+
         &.i1{
             flex: 1 0 63%;
         }

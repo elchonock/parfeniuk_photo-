@@ -33,6 +33,7 @@ $bg_color_footer: #2F2E2E;
 $colorInput: rgb(96, 94, 94);
 $colorButton: rgb(114, 114, 114);
 $colorButtonHover: rgb(204, 204, 204);
+$blue: rgba(34, 127, 171, 1);
 
 
 
@@ -297,28 +298,5 @@ img {
     position: relative;
     }
 }
-
-
-// .bloomContent{
-//     animation-duration: 1s;
-//     animation-name: bloomContent;
-//     animation-timing-function: ease;
-//     transition: all ease-out 1s;
-// }
-
-// @keyframes bloomContent{
-//     0%{
-//         transform-origin: top left;
-//         transform:  scale(0.9) ;
-//         opacity: 0.7;     
-// }
-
-//     100%{
-//         transform-origin: top left;        
-//         transform:  scale(1) ;
-//         opacity: 1;
-  
-//     }
-// }
 
 

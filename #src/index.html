@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="description" content="Услуги профессионального фотографа. Семейная, свадебная и портретная съемка. Фотосессия Киев и Украина.">
+    <meta name="keywords" content="фотограф киев недорого, Александр Парфенюк, киев фотосессия цена, семейная фотосессия киев">
+    <meta name="robots" content="none">
+    <!-- не забудь потом включить индексацию -->
     <title>Parfeniuk Photo</title>
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="shortcut icon" href="img/badger.png" type="image/x-icon">
 </head>
 <body>
+    <script>
+        window.addEventListener("load", (e)=>{
+            const preloader = document.querySelector(".preloader");
+            setTimeout(function () {
+                 
+                preloader.classList.add("preloader_done");     
+            }, 500);
+        });
+    </script>
     <div class="preloader">
         <div class="preloader__img"></div>
     </div>
@@ -20,7 +33,15 @@
             <li class="social_media_panel_list_item"><a href=""><img src="img/twit_icon.webp" alt=""></a></li>
         </ul>
     </div>
+    @@include("_popup_window.html")
     @@include("_header.html")
+
+    <div class="popup__status">
+        <div class="status__success"><span>Спасибо! <br> Мы скоро с Вами свяжемся!</span></div>
+        <div class="status__failure"><span>Упс.. Что-то пошло не так. <br> Попробуйте еще раз через пару минут.</span></div>
+    </div>
+
+
     <div class="wrapper">
             <main class="page"> 
 
@@ -119,48 +140,69 @@
                 </section>
 
                 <section class="contact" id="contacts">
-
                         <div class="contact_row">
 
                             <div class="contact_form">
-                                <div class="contact_form_row">
-
-                                    <div class="contact_form_upper">
-
-                                        <div class="contact_form_header">
-                                            <h2><span>Свяжитесь со мной</span></h2>
-                                        </div>
-
+                                <div class="form">
+                                    <form action="#" class="form__body">
+                                        <h1 class="form__title">Свяжитесь со мной</h1>
                                         <div class="contact_form_line_decor"></div>
-
-                                        <div class="contact_form_contacts_data">
-                                            <p><span>город Киев, Украина</span></p>
-                                            <p><span>Телефон: +38 (095) 000-00-00 </span></p>
-                                            <p><span>info@mysite.com</span></p>
-                                            <p class="empty_contact_div">&nbsp</p>
+                                        <div class="form__item">
+                                            <label for="formName" class="form__label">Имя*:</label>
+                                            <input id="formName" type="text" name="name" class="form__input _req">
                                         </div>
-
-                                    </div>
-
-                                    <div class="contact_form_form">
-                                        <form>
-                                            <div class="contact_form_form_name contact_form_input_common"><input type="text"  placeholder="Имя" maxlength="100"></div>
-                                            <div class="contact_form_form_mail contact_form_input_common"><input  type="email" placeholder="Эл.почта"></div>
-                                            <div class="contact_form_form_phone contact_form_input_common"><input  type="tel" placeholder="Телефон"></div>
-                                            <div class="contact_area"><textarea class="contact_form_form_area" id="" cols="30" rows="10" placeholder="Добавить сообщение..."></textarea></div>
-                                            <div class="contact_form_form_button">
-                                                <div class="empty_send">
-                                                    <p class="font_8" style="font-size:13px"><span style="color:#008A00;">Информация отправлена. Спасибо!</span></p>
+                                        <div class="form__item">
+                                            <label for="formEmail" class="form__label">E-mail*:</label>
+                                            <input id="formEmail" type="email" name="email" class="form__input _req">
+                                        </div>
+                                        <div class="form__item">
+                                            <div class="form__label">Какая фотосессия вас интересует?</div>
+                                            <div class="options">
+                                                <div class="options__item">
+                                                    <input id="weddingPhoto" value="wedding" type="radio" name="photoType" class="options__input" checked>
+                                                    <label for="weddingPhoto" class="options__label"> <span>Свадебная фотосессия:</span> </label>
                                                 </div>
-                                                <div class="form_button">
-                                                <button><span>Отправить</span></button></div>
-                                            </div>                  
-                                        
-                                        </form>
-                                    </div>
-
+                                                <div class="options__item">
+                                                    <input id="portraitPhoto" value="portrait" type="radio" name="photoType" class="options__input">
+                                                    <label for="portraitPhoto" class="options__label"><span>Индивидуальная портретная фотосессия:</span> </label>
+                                                </div>
+                                                <div class="options__item">
+                                                    <input id="familyPhoto" value="family" type="radio" name="photoType" class="options__input">
+                                                    <label for="familyPhoto" class="options__label"> <span>Семейная фотосессия:</span> </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form__item">
+                                            <label for="formMessage" class="form__label">Добавить сообщение:</label>
+                                            <textarea name="message" id="formMessage" class="form__input"></textarea>
+                                        </div>
+                                        <div class="form__item">
+                                            <label for="formMessage" class="form__label">Тариф</label>
+                                            <select name="price" class="select">
+                                                <option value="one hour" selected>1час - 1500</option>
+                                                <option value="three hours" selected>3часа - 4000</option>
+                                                <option value="more" selected>Больше</option>
+                                            </select> 
+                                        </div>
+                                        <div class="form__item">
+                                            <div class="form__label">Прикрепить референс:</div>
+                                            <div class="file">
+                                                <div class="file__item">
+                                                    <input id="formReference" accept=".jpg, .png, .gif, .webp" type="file" name="reference" class="file__input">
+                                                    <div class="file__button">Выбрать</div>
+                                                </div>
+                                                <div class="file__preview"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form__item">
+                                            <div class="checkbox">
+                                                <input id="formAgreement" checked type="checkbox" name="agreement" class="checkbox__input _req">
+                                                <label for="formAgreement" class="checkbox__label"><span>Я даю свое согласие на обработку персональных данных в соответствии с <a href="#">условиями*</a></span></label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="form__button">Отправить</button>
+                                    </form>
                                 </div>
-
                             </div>
 
                             <div class="contact_img">
@@ -172,7 +214,7 @@
                         </div>
 
                 </section>
-
+                
                 @@include("_footer.html")            
             </main>
 

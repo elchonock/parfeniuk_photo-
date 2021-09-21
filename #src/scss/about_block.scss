@@ -3,6 +3,8 @@ $background_color:#fafafa;
 $colorOne: rgb(47, 46, 46);
 $colorTwo: rgb(160, 160, 159);
 $colorTwo467: rgb(121, 121, 119);
+$beige: #ECE7E0;
+
 
 
 .about{
@@ -140,14 +142,20 @@ $colorTwo467: rgb(121, 121, 119);
         width: 100%;
         display: flex;
         justify-content: center;
-        margin: 0;
+        margin: 0 0 -20px 0;
         padding: 0;
+        background-color:#ECE7E0;
+        box-shadow: inset 0 0px 30px rgba(124, 121, 116, 0.3);
+         
 
 		&_row {
             position: relative;
             display: block;
-            margin: 0;
+            margin:0;
             padding: 0;
+            background-color: rgba($color: #fff, $alpha: 0);
+            // box-shadow: inset 0 -20px 25px rgba(0, 0, 0, 0.1);
+
 
             & .about_img {
                 position: relative;
@@ -155,14 +163,16 @@ $colorTwo467: rgb(121, 121, 119);
                 height: 100%;
                 margin: 0;
                 padding: 0;
-                top: 0;
+                top: 0;            
                 
                 img {
                     object-fit: cover;
                     object-position: center;   
                     position: relative;
                     width: 100%;
-                    min-height: 567px;
+                    min-height: 567px;  
+                    visibility: hidden;
+ 
                 }
 
             }
