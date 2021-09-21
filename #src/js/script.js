@@ -460,6 +460,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 form.classList.remove("_active");
             } else if (e.target && e.target.classList.contains("closeForm") && form.classList.contains("_active")) {
                 form.classList.remove("_active");
+                const preloaded = document.querySelectorAll('.file__preview');
+                preloaded.forEach(p=>p.innerHTML = "");
             }
         
         });
