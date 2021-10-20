@@ -1,5 +1,5 @@
 ### parfeniuk_photo-
-** This is a website for [photographer](https://elchonock.github.io/parfeniuk_photo_dist/) **
+**This is a website for** [photographer](https://elchonock.github.io/parfeniuk_photo_dist/)
 
 With this project I mastered:
 * CSS:
