@@ -7,17 +7,20 @@ $colorOne: rgb(47, 46, 46);
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 50;
+    z-index: 1;
     min-height: 81px;
-    background-color: $white;
+    // background-color: $white;
     transform-style: preserve-3d; 
     opacity: 1;
+    
   
     &_row{
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 80px;
+        background-color: $white;
+
     }
 
 }
@@ -60,7 +63,7 @@ $colorOne: rgb(47, 46, 46);
         display: block;
         width: 100%;
         box-sizing: padding-box;
-        padding: 0px 16px;
+        padding: 0px 25px;
         
         }
 }
@@ -77,7 +80,7 @@ $colorOne: rgb(47, 46, 46);
             flex-wrap: wrap;
             li{
                 flex: 1 0 25%;
-                margin: 15px 15px;
+                margin: 5px 15px;
             }
         }
         &_link{
@@ -168,6 +171,20 @@ $colorOne: rgb(47, 46, 46);
     .burger::before{
         content: "";
         top: 0;
+    }
+
+    .burger._active::after{
+        content: "";
+        bottom: 13.5px;
+        transform: rotate(-45deg) ;
+    }
+    .burger._active::before{
+        content: "";
+        top: 13.5px;
+        transform: rotate(45deg) ;
+    }
+    .burger._active span{
+        transform: scale(0) translate(0, -50%);
     }
 
     .menu_body{

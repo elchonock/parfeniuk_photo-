@@ -26,6 +26,7 @@ $new: rgb(247, 247, 247);
     height: 100%;
     background-color: rgba(204, 204, 204, 0);
     transform: scale(0);
+    
 
     .closeForm{
         width: 50px;
@@ -58,7 +59,7 @@ $new: rgb(247, 247, 247);
     &._active{
         visibility: visible;
         opacity: 1;
-        transition: transform ease 0.3s 0s, background-color ease 1s 0.3s;
+        transition: background-color ease-out 1.5s 0s, opacity ease-out 0.2s 0s;
         z-index: 100;
         transform: scale(1);
         background-color: rgba(204, 204, 204, 0.7);
@@ -155,6 +156,9 @@ $new: rgb(247, 247, 247);
             top: 3px;
             box-shadow: 0 2px 10px #6a9397;
         }
+        &:focus{
+            box-shadow: 0 0 5px 2px #267780;
+        }
 
     }
 }
@@ -179,12 +183,25 @@ $new: rgb(247, 247, 247);
     // .options__input
 
     &__input {
-        display: none;
+        // display: none;
         // visibility: hidden;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        clip: rect(0, 0, 0, 0);
+
+        &:focus + .options__label::before{
+            background-color: transparent;
+            box-shadow: 0 0 5px 2px #267780;
+        }
+
+
     }
     &__input:checked + .options__label::after {
         transform: scale(1);
         transition: transform ease 0.2s 0s;
+        // background-color: rgb(20, 157, 220);
     }
 
 
@@ -230,6 +247,15 @@ $new: rgb(247, 247, 247);
     font-size: 16px;
     padding: 0 20px;
     cursor: pointer;
+    &:focus{
+        box-shadow: 0 0 5px 2px #267780;
+        
+    }
+    
+    // option:focus{
+
+
+    // }
 
 }
 .file {
@@ -251,6 +277,10 @@ $new: rgb(247, 247, 247);
         opacity: 0;
         font-size: 0;
         cursor: pointer;
+
+        &:focus + .file__button{
+            box-shadow: 0 0 5px 2px #267780;
+        }
     }
 
     // .file__button
@@ -284,13 +314,23 @@ $new: rgb(247, 247, 247);
     // .checkbox__input
 
     &__input {
-        display: none;
+        // display: none;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        clip: rect(0, 0, 0, 0);
+        padding: 0;
 
+        &:focus + .checkbox__label::before{
+            box-shadow: 0 0 5px 2px #267780;
+        }
+
+        &:checked + .checkbox__label::after{
+            transform: scale(1);
+        }
         
     }
-    &__input:checked + .checkbox__label::after{
-        transform: scale(1);
-    }
+
 
     // .checkbox__label
 

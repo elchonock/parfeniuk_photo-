@@ -377,6 +377,9 @@ $img_container_width3: math.div($viewport_width, 3);
     &::before{ transform: translateY(-12px) rotate(45deg);}
     &::after{ transform: translateY(12px) rotate(-45deg);}
 
+    &._mobile::before{display: 'none';}
+    &._mobile::after{display: 'none';}
+
 }
 
 .prev{
@@ -405,6 +408,9 @@ $img_container_width3: math.div($viewport_width, 3);
     &::before{ transform: translateY(-12px) rotate(-45deg);}
     &::after{ transform: translateY(12px) rotate(45deg);}
 
+    &._mobile::before{display: 'none';}
+    &._mobile::after{display: 'none';}
+
 }
 
 .closeX{
@@ -430,6 +436,9 @@ $img_container_width3: math.div($viewport_width, 3);
 
     &::before{transform: rotate(45deg);}
     &::after{transform: rotate(-45deg);}
+
+    &._mobile::before{display: 'none';}
+    &._mobile::after{display: 'none';}
 
 
 }

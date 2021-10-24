@@ -513,3 +513,127 @@
 // }
 
 // console.log(topSalary(salaries));
+
+
+
+// class HttpError extends Error {
+//     constructor(response) {
+//       super(`${response.status} for ${response.url}`);
+//       this.name = 'HttpError';
+//       this.response = response;
+//     }
+// }
+  
+
+// async function loadJson(url) {
+    
+//     let response = await fetch(url);
+//     if (response.status == 200) {
+//         return response.json;
+        
+//     } else {
+//         throw new HttpError(response);
+//     }    
+// }
+
+
+
+//   //-------------------------------------------
+//   // Запрашивать логин, пока github не вернёт существующего пользователя.
+// async function demoGithubUser() {
+//     let user;
+//     while(true){
+//         let name = await prompt("Введите логин?", "iliakan");
+//         try {        
+//         user = await loadJson(`https://api.github.com/users/${name}`);
+//         break;
+//         }
+//         catch(err) {
+//             if (err instanceof HttpError && err.response.status == 404){
+//                 alert("Такого пользователя не существует, пожалуйста, повторите ввод.");
+//             } else {
+//                 throw err;
+//             }
+//         }
+//         }
+
+//     alert(`Полное имя: ${user.name}.`);
+//     return user;
+
+// }
+  
+//   demoGithubUser();
+
+
+//------------------------------------------------------------
+// console.log("data request");
+
+// const req = new Promise((resolve, reject)=>{
+//     setTimeout(()=> {
+//         console.log("getting ready...");
+
+//         const product = {
+//             name: "TV",
+//             price: 200
+//         };
+//         resolve(product);
+//     }, 2000);
+
+// });
+
+// req.then((product) => {
+//     return new Promise((resolve, reject)=>{
+//         setTimeout(()=>{
+//             product.status = "ordered";
+//             resolve(product);
+//         }, 2000);
+//     });
+
+// }).then(product=>{
+//     product.modified = true;
+//     return product;
+// }).then(data=>{
+
+    
+//     console.log("data received:");
+//     console.log(data);
+
+// })
+// .catch((err)=>{
+//     console.error("Error " + err);
+
+// })
+// .finally(()=>{
+//     console.log("finally");
+
+// });
+
+
+// const test = time => {
+//     return new Promise(resolve => {
+//         setTimeout(() => resolve(time), time);
+
+//     });
+
+// };
+
+// test(1000).then(()=> console.log("1000ms"));
+// test(2000).then(()=> console.log("2000ms"));
+
+// Promise.all([test(1000), test(2000)]).then(()=>{
+//     console.log("all done");
+// });
+// Promise.race([test(1000), test(2000)]).then(p=>{
+//     console.log(p);
+// });
+
+
+
+
+
+
+
+
+
+
+

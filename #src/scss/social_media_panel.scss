@@ -1,11 +1,12 @@
 @import "all_colors_variables.scss";
+$blue: #92B8BD;
 
 .social_media_panel{
     position:fixed;
     display: block;
     z-index: 50;
     top: 40%;
-    left: 50px;
+    // right: 50px;
     // overflow: visible;
     &_list{
         &_item{
@@ -15,6 +16,35 @@
             // }
         }
     }
+    svg .st0{ 
+        fill:#E0E0E2;
+        transition: all ease 1s 0s;
+    }
+    svg .st1, svg .st3{
+        fill:#fff;
+        transition: all ease 1s 0s;
+    }
+    svg:hover .st0{
+        fill: #267780;
+        transition: all ease 0.7s 0s;
+        
+    }
+    svg:hover{
+        box-shadow: 0 0 3px #17474d;
+        transition: all ease 0.7s 0s;
+        border-radius: 50%;
+        transform: scale(1.1);
+    }
+    svg{
+        width: 35px;
+        height: 35px;
+        transform: scale(1);
+        transition: all ease 0.7s 0s;
+        border-radius: 50%;
+    }
+    
+
+
 }
 
 
@@ -22,15 +52,15 @@
 @media (max-width:767px) {
     .social_media_panel{
         top: 0;
-        left: 3%;
+        left: 2%;
         width: 75%;
-        padding: 18px;
+        padding: 20px 10px;
         overflow: auto;
         z-index: 99;
         
         &_list{
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
             &_item{
                 margin: 0;
@@ -40,15 +70,29 @@
                     height: 42px;
                     display: block;
                 }
-                img{
+                svg{
                     position: relative;
                     height: 42px;
                     width: 42px;
+
+                    & .st0{fill: $blue;}
+                    
                 }
             }
         }
     }
 
+}
+
+@media(max-width: 1300px) {
+    .social_media_panel{        
+        right: 50px;
+    }
+}
+@media(min-width: 1300px) {
+    .social_media_panel{        
+        left: 50px;
+    }
 }
 
 .social_media_panel.hidden_head{

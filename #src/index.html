@@ -27,10 +27,10 @@
     </div>
     <div class="social_media_panel">
         <ul class="social_media_panel_list">
-            <li class="social_media_panel_list_item"><a href="https://www.instagram.com/parfeniuk/"><img src="img/insta_icon.webp" alt=""></a></li>
-            <li class="social_media_panel_list_item"><a href=""><img src="img/FB_icon.webp" alt=""></a></li>
-            <li class="social_media_panel_list_item"><a href=""><img src="img/VK_icon.webp" alt=""></a></li>
-            <li class="social_media_panel_list_item"><a href=""><img src="img/twit_icon.webp" alt=""></a></li>
+            <li class="social_media_panel_list_item"><a href="https://www.instagram.com/parfeniuk/">@@include("img/instagram.svg")</a></li>
+            <li class="social_media_panel_list_item"><a href=""> @@include("img/facebook.svg")</a></li>
+            <li class="social_media_panel_list_item"><a href="">@@include("img/telegram2.svg")</a></li>
+            <li class="social_media_panel_list_item"><a href=""> @@include("img/phone.svg")</a></li>
         </ul>
     </div>
     @@include("_popup_window.html")
@@ -40,6 +40,7 @@
         <div class="status__success"><span>Спасибо! <br> Мы скоро с Вами свяжемся!</span></div>
         <div class="status__failure"><span>Упс.. Что-то пошло не так. <br> Попробуйте еще раз через пару минут.</span></div>
     </div>
+
 
 
     <div class="wrapper">
@@ -80,20 +81,10 @@
                             <div class="about_line_decor"></div>
                             <div class="about_text_text">
                                 <div class="about_text_container_p">
-                                    <p class="about_p1">Это текст. Нажмите один раз и выберите «Редактировать текст» 
-                                        или просто кликните дважды, чтобы добавить свой текст и 
-                                        настроить шрифт. Вы можете переместить его в любое место 
-                                        на странице. Расскажите посетителям сайта о себе.</p>
-                                    <p class="about_p2">Здесь будет удачно смотреться текст о вашей компании и 
-                                        услугах. Используйте эту возможность, чтобы выгодно 
-                                        представить себя и свою компанию клиентам.</p>
-                                    <p class="about_p3">Расскажите интересную историю, например, как вам 
-                                        в голову пришла идея собственного дела, и объясните, 
-                                        в чем заключается ваше преимущество перед конкурентами. 
-                                        Приводите увлекательные факты и цифры. Не забудьте 
-                                        про ключевые слова, по которым ваш сайт найдут в 
-                                        поисковых системах. Чтобы добавить свое фото, 
-                                        нажмите на изображение и выберите «Заменить фото».</p>
+                                    <p class="about_p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur sed, dicta consectetur itaque minima laudantium veniam, tenetur quia optio.
+                                        </p>
+                                    <p class="about_p2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum ut modi suscipit voluptates quaerat odio, eligendi tenetur quidem sunt fugit. Sit, placeat at consequatur dignissimos porro corporis molestiae earum cum!.</p>
+                                    <p class="about_p3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique incidunt quo aliquam vel assumenda ut beatae, possimus dicta ab voluptates numquam optio dolore ipsa corporis, odio distinctio vero accusantium ducimus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias suscipit quaerat assumenda facilis nesciunt. Id at facere harum laboriosam, asperiores itaque dolores, quod omnis accusamus, molestias consequatur velit repellat maiores!</p>
                                 </div>
                             </div>
 
@@ -180,15 +171,15 @@
                                             <label for="formMessage" class="form__label">Тариф</label>
                                             <select name="price" class="select">
                                                 <option value="one hour" selected>1час - 1500</option>
-                                                <option value="three hours" selected>3часа - 4000</option>
-                                                <option value="more" selected>Больше</option>
+                                                <option value="three hours" >3часа - 4000</option>
+                                                <option value="more" >Больше</option>
                                             </select> 
                                         </div>
                                         <div class="form__item">
                                             <div class="form__label">Прикрепить референс:</div>
                                             <div class="file">
                                                 <div class="file__item">
-                                                    <input id="formReference" accept=".jpg, .png, .gif, .webp" type="file" name="reference" class="file__input">
+                                                    <input id="formReference" accept=".jpg, .jpeg, .png, .gif, .webp" type="file" name="reference" class="file__input">
                                                     <div class="file__button">Выбрать</div>
                                                 </div>
                                                 <div class="file__preview"></div>
@@ -197,7 +188,7 @@
                                         <div class="form__item">
                                             <div class="checkbox">
                                                 <input id="formAgreement" checked type="checkbox" name="agreement" class="checkbox__input _req">
-                                                <label for="formAgreement" class="checkbox__label"><span>Я даю свое согласие на обработку персональных данных в соответствии с <a href="#">условиями*</a></span></label>
+                                                <label for="formAgreement" class="checkbox__label"><span>Я даю свое согласие на обработку персональных данных в соответствии с <a href="#" tabindex="-1">условиями*</a></span></label>
                                             </div>
                                         </div>
                                         <button type="submit" class="form__button">Отправить</button>
