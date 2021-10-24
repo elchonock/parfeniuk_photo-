@@ -1,19 +1,18 @@
-### parfeniuk_photo-
-**This is a website for [photographer](https://elchonock.github.io/parfeniuk_photo_dist/) **
+## photographer website   
+### This website made for the best [photographer](https://elchonock.github.io/parfeniuk_photo_dist/) - for my husband ❤️
 
-With this project I mastered:
-* CSS:
+
+**With this project I mastered:**
+* SCSS:
    * Flexbox
    * Parallax
-   * Transform(translate, rotate)
-   * Transition
    * Responsive Design using media queries and flex
-* SCSS
 * JavaScript:
-   * Modal Popup Window
+   * Popup Windows
    * Slider
-   * Timer
    * Smooth navigation to elements on a page
+   * AJAX
+   * Google Apps Script
 * Gulp
     
  
