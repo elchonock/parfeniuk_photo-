@@ -328,10 +328,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 photoPopup.style.display = "none";
                 photoPopup.style.overflow = "";
                 bigPhoto.classList.remove("fadeTwo");  
-
-                bigPhotoWrapper.style.left = "0";
-                bigPhotoWrapper.style.top = "0";
             } 
+
+            bigPhotoWrapper.style.left = "0";
+            bigPhotoWrapper.style.top = "0";
 
         });
 
