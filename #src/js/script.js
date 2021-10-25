@@ -236,8 +236,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 bigPhoto.classList.toggle("fadeOne");
                 bigPhoto.classList.toggle("fadeTwo");
             }
+
+            bigPhotoWrapper.style.left = "0";
+            bigPhotoWrapper.style.top = "0";
             
         }
+
         function showPrevSlide(params) {
             if (slideIndex > 0){
                 bigPhoto.setAttribute("src", slides[slideIndex-1].getAttribute("data-photo"));
@@ -249,39 +253,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 bigPhoto.setAttribute("src", slides[slideIndex].getAttribute("data-photo"));
                 bigPhoto.classList.toggle("fadeOne");
                 bigPhoto.classList.toggle("fadeTwo");
-            }            
+            }    
+
+            bigPhotoWrapper.style.left = "0";
+            bigPhotoWrapper.style.top = "0";
+
         }
 
         //Slider
         next.addEventListener("click", (event)=>{
             showNextSlide();
-            // if (slideIndex+1 < slides.length){
-            //     bigPhoto.setAttribute("src", slides[slideIndex+1].getAttribute("data-photo"));
-            //     slideIndex++;
-            //     bigPhoto.classList.toggle("fadeOne");
-            //     bigPhoto.classList.toggle("fadeTwo");
-
-            // } else {
-            //     slideIndex = 0;
-            //     bigPhoto.setAttribute("src", slides[slideIndex].getAttribute("data-photo"));
-            //     bigPhoto.classList.toggle("fadeOne");
-            //     bigPhoto.classList.toggle("fadeTwo");
-            // }
         });
 
         prev.addEventListener("click", (event)=>{
             showPrevSlide();
-            // if (slideIndex > 0){
-            //     bigPhoto.setAttribute("src", slides[slideIndex-1].getAttribute("data-photo"));
-            //     slideIndex--;
-            //     bigPhoto.classList.toggle("fadeOne");
-            //     bigPhoto.classList.toggle("fadeTwo");
-            // } else {
-            //     slideIndex = slides.length - 1;
-            //     bigPhoto.setAttribute("src", slides[slideIndex].getAttribute("data-photo"));
-            //     bigPhoto.classList.toggle("fadeOne");
-            //     bigPhoto.classList.toggle("fadeTwo");
-            // }
         });
 
         //change slide by click arrow keys
@@ -290,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function() {
             //next slide
             if (event.key == "ArrowRight" && photoPopup.style.display == "flex") {
                 showNextSlide();
-                // prev slide
+            // prev slide
             } else if (event.key == "ArrowLeft" && photoPopup.style.display == "flex") {
                 showPrevSlide();
             }
@@ -300,43 +285,52 @@ document.addEventListener("DOMContentLoaded", function() {
          //change slide by swipe
          let touchStart;
          let touchEnd;
+         let touchCoordX;
+         let touchCoordY;
          bigPhoto.addEventListener('touchstart', e => {
              e.preventDefault();
              e.stopPropagation();
              touchStart = e.changedTouches[0];
-            
-            // console.log( e.touches[0]);
-            // console.log( e.changedTouches[0]);
-            // console.log('p', e.changedTouches[0].pageX);
-            // console.log('p', e.changedTouches[0].pageY);
-            // console.log('cli', e.changedTouches[0].clientX);
-            // console.log('cli', e.changedTouches[0].clientY);
 
-         });
+             touchCoordX = touchStart.pageX - touchStart.target.offsetLeft;
+             touchCoordY = touchStart.pageY - touchStart.target.offsetTop;
+
+        });
+         //move slide
+        bigPhoto.addEventListener('touchmove', e => {
+            if (e.targetTouches.length == 1) {
+                let touch = e.targetTouches[0];
+                bigPhotoWrapper.style.left = touch.pageX - touchCoordX + 'px';
+                if (Math.abs(touch.pageY - touchCoordY) > 50) {
+                    bigPhotoWrapper.style.top = touch.pageY - touchCoordY + 'px';
+                }                
+            }
+        }, false);
 
          bigPhoto.addEventListener('touchend', e => {
             e.preventDefault();
             e.stopPropagation();
             touchEnd = e.changedTouches[0];
 
-            // console.log( e.changedTouches[0]);
-
             let xDelta = touchStart.pageX - touchEnd.pageX;
             let yDelta = touchStart.pageY - touchEnd.pageY;
    // ---------Show Next Slide
-            if (xDelta > 30) {
+            if (xDelta > 50) {
                showNextSlide();
 
     // ---------Show Prev Slide   
-            } else if (xDelta < 30) {
+            } else if (xDelta < -50) {
                showPrevSlide();
             }
 
     // ---------Close Photo
-            if (yDelta > 70 || yDelta < -70) {
+            if (yDelta > 150 || yDelta < -150) {
                 photoPopup.style.display = "none";
                 photoPopup.style.overflow = "";
                 bigPhoto.classList.remove("fadeTwo");  
+
+                bigPhotoWrapper.style.left = "0";
+                bigPhotoWrapper.style.top = "0";
             } 
 
         });
@@ -404,7 +398,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const burger = document.querySelector(".burger");
     const menuBody = document.querySelector(".menu_body");
     burger.addEventListener("click", showBurgerMenu);
-    // menuBody.addEventListener("click", showBurgerMenu);
+    menuBody.addEventListener("click", showBurgerMenu);
 
 
     function showBurgerMenu() {
@@ -443,12 +437,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
             header.classList.add('hidden_head');
             headerMB.classList.add("hidden_head");
+
+            // headerMain.classList.remove("_active");
         }
         else if(containHide() && (scrollPos() < lastScroll)){
             //scroll up
             header.classList.remove('hidden_head');
             social.classList.remove("hidden_head");
             headerMB.classList.remove("hidden_head");
+
+            // headerMain.classList.remove("_active");
         }
 
         lastScroll = scrollPos();
@@ -489,7 +487,6 @@ document.addEventListener("DOMContentLoaded", function() {
             } else if (e.target && e.target.classList.contains("closeForm") && form.classList.contains("_active")) {
                 form.classList.remove("_active");
                 // delete preview of uploaded img when closing the form
-                // const preloaded = document.querySelectorAll('.file__preview');
                 preloaded.forEach(p=>p.innerHTML = "");
             }        
         });   
@@ -700,7 +697,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         //check size--------------------------------
         if (file.size > 10*1024*1024){
-            alert("Файл должен быть меньше 10МБ.")
+            alert("Файл должен быть меньше 10МБ.");
             return;
         }
 
