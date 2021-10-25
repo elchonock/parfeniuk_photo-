@@ -9,6 +9,8 @@
 
 
 /////////////////////////////////////////////////////////////////////////
+// document.querySelector('#form_low #formAgreement').checked = !document.querySelector('#form_low #formAgreement').checked;
+
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -189,7 +191,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // open-close photo____________________
         photoContainer.addEventListener("click", (event) => {
-            event.preventDefault();
             //Open photo
             if (event.target && event.target.classList.contains("content_row_item")){
                 event.preventDefault();

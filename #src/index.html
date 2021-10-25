@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="img/badger.webp" type="image/x-icon">
 </head>
 <body>
-    <!-- <script>
+    <script>
         window.addEventListener("load", (e)=>{
             const preloader = document.querySelector(".preloader");
             setTimeout(function () {
@@ -21,8 +21,8 @@
                 preloader.classList.add("preloader_done");     
             }, 500);
         });
-    </script> -->
-    <script>
+    </script>
+    <!-- <script>
         window.addEventListener("DOMContentLoaded", (e)=>{
             const preloader = document.querySelector(".preloader");
             setTimeout(function () {
@@ -30,7 +30,7 @@
                 preloader.classList.add("preloader_done");     
             }, 500);
         });
-    </script>
+    </script> -->
     <div class="preloader">
         <div class="preloader__img"></div>
     </div>
@@ -144,7 +144,7 @@
 
                             <div class="contact_form">
                                 <div class="form">
-                                    <form action="#" class="form__body">
+                                    <form action="#" id="form_low" class="form__body">
                                         <h1 class="form__title">Свяжитесь со мной</h1>
                                         <div class="contact_form_line_decor"></div>
                                         <div class="form__item">
@@ -198,7 +198,7 @@
                                             <div class="checkbox">
                                                 <input id="formAgreement" checked type="checkbox" name="agreement" class="checkbox__input _req">
                                                 <label for="formAgreement" class="checkbox__label"><span>Я даю свое согласие на обработку персональных данных в соответствии с <a href="#" tabindex="-1">условиями*</a></span></label>
-                                            </div>
+                                            </div> 
                                         </div>
                                         <button type="submit" class="form__button">Отправить</button>
                                     </form>
