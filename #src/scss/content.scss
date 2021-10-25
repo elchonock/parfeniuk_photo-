@@ -453,11 +453,14 @@ $img_container_width3: math.div($viewport_width, 3);
     transition: all ease-in-out 1s;
 }
 @keyframes fadeOne {
-    from{
+    0%{
         opacity: 0.2;
+
+
     }
-    to{
+    100%{
         opacity: 1;
+
     }  
 }
 .fadeTwo{
@@ -474,17 +477,18 @@ $img_container_width3: math.div($viewport_width, 3);
 }
 
 .fadeThree{
-    animation: fadeThree 1s ease-in;
-    transition: all linear 1s;
+    animation: fadeThree 1s ease-in-out;
+    transition: all ease-in-out 1s;
 }
 @keyframes fadeThree {
-    from{
-        opacity: 0.2;
-        // transform: translateX(-10px) scale(1.01);
+    0%{
+        transform: translateX(-20%);
+
     }
-    to{
-        opacity: 1;
-        // transform: translateX(0px) scale(1);
+    100%{
+        // opacity: 1;
+        // top: 0;
+        transform: translateX(0%);
     }  
 }
 
