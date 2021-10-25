@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const page = document.querySelector(".page");
 
 
-    let t; 
+    // let t; 
     // function scrolltop() { 
     //     let top = Math.max(document.body.scrollTop, page.scrollTop); 
     //     if (top > 0) { 
@@ -125,10 +125,11 @@ document.addEventListener("DOMContentLoaded", function() {
             e.preventDefault();
             const elemScrollTo = document.querySelector(e.target.getAttribute("data-nav"));
             let point;
-            // const point = elemScrollTo.getBoundingClientRect().top + page.scrollTop - document.querySelector("header").offsetHeight;
-            // const point = elemScrollTo.getBoundingClientRect().top + page.scrollTop;
+            // const point = elemScrollTo.getBoundingClientRect().top + page.scrollTop - document.querySelector("header").offsetHeight;            
 
-            point = elemScrollTo.getBoundingClientRect().top + page.scrollTop - headerMain.offsetHeight;
+            // point = elemScrollTo.getBoundingClientRect().top + page.scrollTop - headerMain.offsetHeight;
+            point = elemScrollTo.getBoundingClientRect().top + document.querySelector('.page').scrollTop - headerMain.offsetHeight;
+
             if (point > page.scrollTop) {
                 point += headerMain.offsetHeight;
             }
@@ -138,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 behavior: "smooth",
             });
 
-        });
+        }, false);
     });
 
 
@@ -328,9 +329,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 },200);
                 setTimeout(()=>{
                     bigPhotoWrapper.style.opacity = 1;                    
-                },500);
+                },350);
 
-                setTimeout(showNextSlide, 550);               
+                setTimeout(showNextSlide, 400);               
 
     // ---------Show Prev Slide   
             } else if (xDelta < -50) {       
@@ -342,9 +343,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 },200);
                 setTimeout(()=>{
                     bigPhotoWrapper.style.opacity = 1;                    
-                },500);
+                },350);
 
-                setTimeout(showPrevSlide, 550); 
+                setTimeout(showPrevSlide, 400); 
             } else {
                 bigPhotoWrapper.style.transition = "none"; 
                 bigPhotoWrapper.style.left = "0";

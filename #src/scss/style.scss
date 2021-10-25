@@ -278,25 +278,6 @@ img {
 
 }
 
-//Animations---------------------------------------------
-//-------------------------------------------------------
-.bloom{
-    animation-duration: 1s;
-    animation-name: bloom;
-    animation-timing-function: linear;
-    transition: ease 1s all;
-}
 
-@keyframes bloom{
-    0%{opacity: 0;
-    position: absolute;
-    bottom: -50px;
-}
-    100%{
-    opacity: 1;
-    bottom: 0;
-    position: relative;
-    }
-}
 
 

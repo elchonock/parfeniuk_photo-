@@ -13,8 +13,17 @@
     <link rel="shortcut icon" href="img/badger.webp" type="image/x-icon">
 </head>
 <body>
-    <script>
+    <!-- <script>
         window.addEventListener("load", (e)=>{
+            const preloader = document.querySelector(".preloader");
+            setTimeout(function () {
+                 
+                preloader.classList.add("preloader_done");     
+            }, 500);
+        });
+    </script> -->
+    <script>
+        window.addEventListener("DOMContentLoaded", (e)=>{
             const preloader = document.querySelector(".preloader");
             setTimeout(function () {
                  
@@ -64,7 +73,7 @@
                             <div class="header_parallax_div"><a href="" class="header_parallax_link name">АЛЕКСАНДР ПАРФЕНЮК</a></div>
                         </h1>
                         <small>
-                            <div class="header_parallax_small_div"><a href="" class="header_parallax_link photographer">СВАДЕБНЫЙ ФОТОГРАФ</a></div>
+                            <div class="header_parallax_small_div"><a href="" class="header_parallax_link photographer">СЕМЕЙНЫЙ ФОТОГРАФ</a></div>
                         </small>
                     </div> 
                 </section>
