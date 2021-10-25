@@ -351,6 +351,8 @@ $img_container_width3: math.div($viewport_width, 3);
     left: 0;
     top: 0;
 
+    // transition: all ease 0.3s 0s;
+
 }
 
 
@@ -484,4 +486,10 @@ $img_container_width3: math.div($viewport_width, 3);
         opacity: 1;
         // transform: translateX(0px) scale(1);
     }  
+}
+
+
+body._touch .bigPhotoWrapper img{
+    max-width: 100vw;
+    max-height: 90vh;
 }

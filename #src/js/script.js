@@ -200,6 +200,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 bigPhoto.setAttribute("src", pathBPh);
                 bigPhoto.classList.add("fadeOne");
 
+                // bigPhotoWrapper.classList.add("move-left-one");
+                
+
                 slides.forEach((item, index) => {
                 if (pathBPh == item.getAttribute("data-photo")){
                     slideIndex = index;
@@ -239,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             bigPhotoWrapper.style.left = "0";
             bigPhotoWrapper.style.top = "0";
-            
+
         }
 
         function showPrevSlide(params) {
@@ -253,6 +256,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 bigPhoto.setAttribute("src", slides[slideIndex].getAttribute("data-photo"));
                 bigPhoto.classList.toggle("fadeOne");
                 bigPhoto.classList.toggle("fadeTwo");
+                
             }    
 
             bigPhotoWrapper.style.left = "0";
@@ -288,12 +292,12 @@ document.addEventListener("DOMContentLoaded", function() {
          let touchCoordX;
          let touchCoordY;
          bigPhoto.addEventListener('touchstart', e => {
-             e.preventDefault();
-             e.stopPropagation();
-             touchStart = e.changedTouches[0];
+            e.preventDefault();
+            e.stopPropagation();
+            touchStart = e.changedTouches[0];
 
-             touchCoordX = touchStart.pageX - touchStart.target.offsetLeft;
-             touchCoordY = touchStart.pageY - touchStart.target.offsetTop;
+            touchCoordX = touchStart.pageX - touchStart.target.offsetLeft;
+            touchCoordY = touchStart.pageY - touchStart.target.offsetTop;
 
         });
          //move slide
@@ -305,35 +309,62 @@ document.addEventListener("DOMContentLoaded", function() {
                     bigPhotoWrapper.style.top = touch.pageY - touchCoordY + 'px';
                 }                
             }
+
         }, false);
 
-         bigPhoto.addEventListener('touchend', e => {
+        bigPhoto.addEventListener('touchend', e => {
             e.preventDefault();
             e.stopPropagation();
             touchEnd = e.changedTouches[0];
 
             let xDelta = touchStart.pageX - touchEnd.pageX;
             let yDelta = touchStart.pageY - touchEnd.pageY;
+            
    // ---------Show Next Slide
             if (xDelta > 50) {
-               showNextSlide();
+                bigPhotoWrapper.style.left = "-100%";
+                bigPhotoWrapper.style.opacity = 0;
+                setTimeout(()=>{
+                    bigPhotoWrapper.style.left = "100%";                    
+                },300);
+                setTimeout(()=>{
+                    bigPhotoWrapper.style.opacity = 1;                    
+                },500);
+
+                setTimeout(showNextSlide, 750);               
 
     // ---------Show Prev Slide   
-            } else if (xDelta < -50) {
-               showPrevSlide();
+            } else if (xDelta < -50) {       
+                bigPhotoWrapper.style.transition = "all ease 0.3s 0s";     
+                bigPhotoWrapper.style.left = "100%";
+                bigPhotoWrapper.style.opacity = 0;
+                setTimeout(()=>{
+                    bigPhotoWrapper.style.left = "-100%";                    
+                },300);
+                setTimeout(()=>{
+                    bigPhotoWrapper.style.opacity = 1;                    
+                },500);
+
+                setTimeout(showPrevSlide, 750); 
+            } else {
+                bigPhotoWrapper.style.transition = "none"; 
+                bigPhotoWrapper.style.left = "0";
             }
 
     // ---------Close Photo
             if (yDelta > 150 || yDelta < -150) {
                 photoPopup.style.display = "none";
                 photoPopup.style.overflow = "";
-                bigPhoto.classList.remove("fadeTwo");  
+                bigPhoto.classList.remove("fadeTwo");
+                // bigPhotoWrapper.style.left = "0";
             } 
 
-            bigPhotoWrapper.style.left = "0";
+            // bigPhotoWrapper.style.left = "0";
+            // // // bigPhotoWrapper.style.left = "100%";
             bigPhotoWrapper.style.top = "0";
 
         });
+
 
     }
 
