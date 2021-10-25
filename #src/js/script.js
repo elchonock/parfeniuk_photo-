@@ -331,7 +331,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     bigPhotoWrapper.style.opacity = 1;                    
                 },500);
 
-                setTimeout(showNextSlide, 750);               
+                setTimeout(showNextSlide, 550);               
 
     // ---------Show Prev Slide   
             } else if (xDelta < -50) {       
@@ -345,7 +345,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     bigPhotoWrapper.style.opacity = 1;                    
                 },500);
 
-                setTimeout(showPrevSlide, 750); 
+                setTimeout(showPrevSlide, 550); 
             } else {
                 bigPhotoWrapper.style.transition = "none"; 
                 bigPhotoWrapper.style.left = "0";
