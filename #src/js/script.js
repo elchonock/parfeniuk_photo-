@@ -242,6 +242,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             bigPhotoWrapper.style.left = "0";
             bigPhotoWrapper.style.top = "0";
+            bigPhotoWrapper.style.transition = "all ease 0.3s 0s"; 
 
         }
 
@@ -261,6 +262,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             bigPhotoWrapper.style.left = "0";
             bigPhotoWrapper.style.top = "0";
+            bigPhotoWrapper.style.transition = "all ease 0.3s 0s"; 
 
         }
 
@@ -326,6 +328,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 bigPhotoWrapper.style.left = "-100%";
                 bigPhotoWrapper.style.opacity = 0;
                 setTimeout(()=>{
+                    bigPhotoWrapper.style.transition = "none"; 
                     bigPhotoWrapper.style.left = "100%";                    
                 },200);
                 setTimeout(()=>{
@@ -340,6 +343,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 bigPhotoWrapper.style.left = "100%";
                 bigPhotoWrapper.style.opacity = 0;
                 setTimeout(()=>{
+                    bigPhotoWrapper.style.transition = "none"; 
                     bigPhotoWrapper.style.left = "-100%";                    
                 },200);
                 setTimeout(()=>{
