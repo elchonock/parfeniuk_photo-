@@ -11,7 +11,8 @@
    * Popup Windows
    * Slider
    * AJAX
-   * Google Apps Script
+   * Google Apps Script 
+   * Sending form data to google sheets and google drive
 * Gulp
     
  
