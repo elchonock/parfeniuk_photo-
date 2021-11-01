@@ -11,15 +11,16 @@ $white: #fff;
         justify-content: center;
         width: 100%;  //?
         height: 898px;
-        &_photo{
-            background: fixed url(../img/static_bg_photo.webp) no-repeat;
-            background-size: cover;
-            background-position: 50% 50%;
+        // &_photo{
+        //     background: fixed url(../img/dev6.jpg) no-repeat;
+        //     background-size: cover;
+        //     background-position: 100% 100%;
 
-            flex: 1 1 100%;
-            position: relative;
+        //     flex: 1 1 100%;
+        //     position: relative;
+        // }
 
-        }
+
         &_container_H4{
             width: 100vw;  
         }
@@ -45,6 +46,18 @@ $white: #fff;
             }
         }
     }
+}
+
+
+.static_bg_photo_row_photo{
+    // background: 0 0/cover fixed url(../img/dev6.jpg) no-repeat;
+    background: 50% 50%/cover fixed url(../img/nikita_i_listok1.jpg) no-repeat;
+    // background-size: cover;
+    // background-position: 100% 100%;
+
+    flex: 1 1 100%;
+    position: relative;
+    // filter:grayscale(0.5);
 }
 
 //Animations---------------------------------------------

@@ -87,7 +87,29 @@
         top: 0;
         // margin: auto 0;
         object-position: 50% 50%;
-        
+        // object-position: 50% 0%;        
+    }
+
+    &.i8{
+        img{
+           object-position: 50% 32%; 
+        }            
+    }
+
+    &.i3{
+        img{
+            object-position: 50% 20%;
+        }            
+    }
+    &.i5{
+        img{
+            object-position: 50% 30%;
+        }            
+    }
+    &.i11{
+        img{
+            object-position: 50% 10%;
+        }            
     }
     
 }
