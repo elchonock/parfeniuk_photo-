@@ -51,7 +51,8 @@ $white: #fff;
 
 .static_bg_photo_row_photo{
     // background: 0 0/cover fixed url(../img/dev6.jpg) no-repeat;
-    background: 50% 50%/cover fixed url(../img/nikita_i_listok1.jpg) no-repeat;
+    // background: 50% 50%/cover fixed url(../img/nikita_i_listok1.jpg) no-repeat;
+    background: 50% 50%/cover fixed url(../img/nikita_i_listok_bg.jpg) no-repeat;
     // background-size: cover;
     // background-position: 100% 100%;
 
@@ -129,6 +130,15 @@ $white: #fff;
     }
     
 }
+
+
+@media (max-width: 767px){
+    .static_bg_photo_row_photo{
+        background: 50% 50%/cover fixed url(../img/alena_main.jpg) no-repeat;
+    }
+}
+
+
 @media (max-width: 511px) {
     .static_bg_photo {
         height: 558px;

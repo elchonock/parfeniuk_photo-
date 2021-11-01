@@ -71,13 +71,15 @@ body{
         
 } 
 
+
 section{
 
     &.new_main{
         position: relative;
         top: -69px;
         flex: 1 0 auto;
-        background-image: url(../img/alena1.jpg);
+        // background-image: url(../img/alena1.jpg);
+        background-image: url(../img/alena_main.jpg);
         background-repeat: no-repeat;
         background-position: 50% 90px;
         background-origin: border-box;
@@ -202,7 +204,8 @@ section{
         font-size: 16px;
     }
     section.text_par{
-        top: 8vh;
+        // top: 8vh;
+        top: 12vh;
     }
     section.new_main{
         // margin-bottom: 10px;
@@ -210,6 +213,12 @@ section{
         // background-image: url(../img/girl4.jpg);
         background-position: 30% 90px;
 
+    }
+}
+
+@media (max-width: 767px){
+    section.new_main{
+        background-image: url(../img/nikita_i_listok_bg.jpg);
     }
 }
 
