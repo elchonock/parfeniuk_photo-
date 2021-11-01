@@ -10,9 +10,9 @@
 * JavaScript:
    * Popup Windows
    * Slider
-   * Smooth navigation to elements on a page
    * AJAX
-   * Google Apps Script
+   * Google Apps Script 
+   * Sending form data to google sheets and google drive
 * Gulp
     
  
