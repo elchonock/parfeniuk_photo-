@@ -1,5 +1,5 @@
 ## photographer website   
-### This website made for the best [photographer](https://elchonock.github.io/parfeniuk_photo_dist/) - for my husband ❤️
+### This website was made for the best [photographer](https://elchonock.github.io/parfeniuk_photo_dist/) - for my husband ❤️
 
 
 **With this project I mastered:**
