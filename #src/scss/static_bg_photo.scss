@@ -11,18 +11,20 @@ $white: #fff;
         justify-content: center;
         width: 100%;  //?
         height: 898px;
-        // &_photo{
+
+        &_photo{
         //     background: fixed url(../img/dev6.jpg) no-repeat;
         //     background-size: cover;
         //     background-position: 100% 100%;
 
-        //     flex: 1 1 100%;
-        //     position: relative;
-        // }
+            background: 50% 50%/cover fixed url(../img/nikita_i_listok_bg.jpg) no-repeat;    
+            flex: 1 1 100%;
+            position: relative;
+        }
 
 
         &_container_H4{
-            width: 100vw;  
+            width: 100vw;        
         }
         &_H4{
             width: 603px;
@@ -41,7 +43,10 @@ $white: #fff;
                 line-height: normal;
                 //for bloom
                 opacity: 0;
-                transition: ease 1s all;
+                // transition: all ease 0.5s;
+                // position: relative;
+                // bottom: -50px;
+                position: absolute;
                
             }
         }
@@ -49,49 +54,21 @@ $white: #fff;
 }
 
 
-.static_bg_photo_row_photo{
-    // background: 0 0/cover fixed url(../img/dev6.jpg) no-repeat;
-    // background: 50% 50%/cover fixed url(../img/nikita_i_listok1.jpg) no-repeat;
-    // background: 50% 50%/cover fixed url(../img/nikita_i_listok_bg.jpg) no-repeat;
-    // background-size: cover;
-    // background-position: 100% 100%;
-
-    flex: 1 1 100%;
-    position: relative;
-
-    &::before{
-        content: "";
-        background: 50% 50%/cover fixed url(../img/nikita_i_listok_bg.jpg) no-repeat;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-
-        position: absolute;
-
-    }
-
-}
 
 //Animations---------------------------------------------
 //-------------------------------------------------------
 .bloom{
-    animation-duration: 1s;
-    animation-name: bloom;
-    animation-timing-function: linear;
-    transition: ease 1s all;
+    animation: bloom 1.5s ease-out;
 }
 
 @keyframes bloom{
     0%{
-    opacity: 0;
-    position: absolute;
-    bottom: -50px;
+        opacity: 0;
+        transform: translateY(100px);
     }
     100%{
-    opacity: 1;
-    bottom: 0;
-    position: relative;
+        opacity: 1;
+        transform: translateY(0px);
     }
 }
 
@@ -109,7 +86,7 @@ $white: #fff;
                 height: 100%;
             }
             &_H4{
-                margin: 0 0 65px 0;
+                margin: 0 0 65px 10px;
                 left: 0;
 
                 &_text{
@@ -123,6 +100,45 @@ $white: #fff;
     }
 }
 
+
+@media (max-width: 767px){
+    .static_bg_photo_row_photo{
+        // background: 50% 50%/cover fixed url(../img/alena_main.jpg) no-repeat;
+        background: none !important;       
+    }
+
+    .static_bg_photo{
+            background-image: url(../img/alena_main.jpg);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-origin: border-box;
+            transform: translateZ(-1.6px) scale(2.8);
+            /* Force the background image to fill the whole element. */
+            background-size: cover;
+            /* Keep the image from overlapping sibling elements. */
+            width: 100%;
+            transform-style: preserve-3d;
+            height: 100%;
+            max-height: 1250px;
+            min-height: 100vh;
+
+    }
+
+    .static_bg_photo_row_container_H4{ 
+        transform-style: preserve-3d;    
+        transform: translateZ(0.5px) scale(0.8);   
+
+    }
+
+    .static_bg_photo_row_H4{
+        margin: 0px 10px -100px 10px;
+        padding: 5px;
+    }
+
+
+}
+
+
 @media (max-width: 639px) {
     .static_bg_photo {
         height: 698px;
@@ -130,8 +146,8 @@ $white: #fff;
             height: 698px;
             min-height: 698px;
             &_H4{
-                padding: 10px;
-                margin: 0 0 40px 0;
+                // padding: 10px;
+                // margin: 0 0 40px 10px;
                 &_text{
                     padding: 9px;
                     font-size: 37px;
@@ -144,16 +160,6 @@ $white: #fff;
 }
 
 
-@media (max-width: 767px){
-    .static_bg_photo_row_photo{
-        // background: 50% 50%/cover fixed url(../img/alena_main.jpg) no-repeat;
-        &::before{
-            background: 35% 50%/cover fixed url(../img/alena_main.jpg) no-repeat;    
-        }
-    }
-}
-
-
 @media (max-width: 511px) {
     .static_bg_photo {
         height: 558px;
@@ -161,7 +167,7 @@ $white: #fff;
             height: 558px;
             min-height: 558px;
             &_H4{
-                margin: 0 0 25px 0;
+                // margin: 0 0 25px 10px;
                 &_text{
                     padding: 7px;
                     font-size: 32px;
@@ -176,9 +182,10 @@ $white: #fff;
     .static_bg_photo_row_H4_text{
         font-size: 26px;
     } 
-    .static_bg_photo_row_H4{
-        margin: 0 0 10px 0;
-    }
+    // .static_bg_photo_row_H4{
+    //     // margin: 0 0 10px 10px;
+    //     // margin: 0 5px;
+    // }
 }
 
 @media (max-width: 365px) {
@@ -187,9 +194,9 @@ $white: #fff;
         padding: 5px;
         line-height: 150%;
     }
-    .static_bg_photo_row_H4{
-        margin: 0 0 -5px 0;
-    }
+    // .static_bg_photo_row_H4{
+    //     // margin: 0 0 -5px 10px;
+    // }
     .static_bg_photo{
         height: 458px;
     }
@@ -205,6 +212,6 @@ $white: #fff;
         padding: 5px;
     }
     .static_bg_photo_row_H4{
-        margin: 0 0 -15px 0;
+        // margin: 0 0 -15px 5px;
     }
 }
